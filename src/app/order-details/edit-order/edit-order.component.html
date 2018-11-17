@@ -1,0 +1,55 @@
+<form [formGroup]="orderForm" (ngSubmit)="onUpdate(orderForm.value)" novalidate>
+    <div>
+          <label for="name">name:</label>
+    <input type="text" formControlName="name">
+    <div *ngIf="(orderForm.get('name').touched || orderForm.get('name').dirty ) && orderForm.get('name').errors" >
+        <div *ngIf="orderForm.get('name').errors.required">
+         Required First Name cannot be left blank.
+        </div>
+    </div>
+    <br>
+    <label for="orderName">orderName:</label>
+    <input type="text" formControlName="orderName">
+    <div *ngIf="(orderForm.get('orderName').touched || orderForm.get('orderName').dirty ) && orderForm.get('orderName').errors" >
+        <div *ngIf="orderForm.get('orderName').errors.required">
+         Required item Name cannot be left blank.
+        </div>
+    </div>
+     <br>
+  
+     <label for="numOfItem">numOfItem:</label>
+    <input type="number" formControlName="numOfItem">
+    <div *ngIf="(orderForm.get('numOfItem').touched || orderForm.get('numOfItem').dirty ) && orderForm.get('numOfItem').errors" >
+        <div *ngIf="orderForm.get('numOfItem').errors.required">
+         Required item number cannot be left blank.
+        </div>
+        <div *ngIf="orderForm.get('numOfItem').errors.maxlength">
+          Requried maximum 5.
+        </div> 
+    </div>
+  <br>
+  
+  <label for="address">address:</label>
+  <input type="text" formControlName="address">
+    <div *ngIf="(orderForm.get('address').touched || orderForm.get('address').dirty ) && orderForm.get('address').errors" >
+        <div *ngIf="orderForm.get('address').errors.required">
+         Required address cannot be left blank.
+        </div>
+    </div>
+  <br>
+  
+  <label for="mobileNumber">mobileNumber:</label>
+  <input type="number" formControlName="mobileNumber">
+  <div *ngIf="(orderForm.get('mobileNumber').touched || orderForm.get('mobileNumber').dirty ) && orderForm.get('mobileNumber').errors" >
+      <div *ngIf="orderForm.get('mobileNumber').errors.required">
+       Required mobile number cannot be left blank.
+      </div>
+      <div *ngIf="orderForm.get('mobileNumber').errors.minlength"  >
+        Requried number maximum 10 digits.
+      </div>
+   </div>
+  <br>
+  <button type="submit" [disabled]="!orderForm.valid" >Save</button>
+   </div>  
+  </form>
+  

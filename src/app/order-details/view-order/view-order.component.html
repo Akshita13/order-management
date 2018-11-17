@@ -1,0 +1,5 @@
+<div *ngFor="let data of viewdata">
+    <p>{{data | json}}</p>
+<button routerLink="/edit/{{data.id}}">Edit</button>
+<button (click)=delete(data.id)>Delete</button>
+</div>
